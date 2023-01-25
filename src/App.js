@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
 
 function App() {
+
+  const [text, setText] = useState('')
+
+  const hugeNumber = () => {
+    let total = 0
+    for (let i = 1;i < 10000000;i++) {
+      total += i
+    }
+    return total
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        onChange={e => setText(e.target.value)}
+        placeholder='Enter any Number'
+      />
+      total {hugeNumber()}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
